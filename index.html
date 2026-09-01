@@ -1,189 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Alert - Simulation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>Secure Portal</title>
 
-        html, body {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            background: #000;
-        }
+<style>
 
-        /* YOUR UPLOADED TAMIL NADU POLICE WEBSITE IMAGE */
-        .website-background {
-            position: fixed;
-            inset: 0;
+* {
+    box-sizing: border-box;
+}
 
-            background-image: url("TNP HOME PAGE.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-            filter: blur(7px);
-            transform: scale(1.04);
-        }
 
-        /* Darkens the website slightly */
-        .dark-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.35);
-        }
+/* =====================================================
+   LOGIN PAGE
+   ===================================================== */
 
-        /* Flashing red emergency effect */
-        .red-flash {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
+.login-page {
 
-            animation: redAlert 0.8s infinite;
-        }
+    position: fixed;
+    inset: 0;
 
-        @keyframes redAlert {
-            0%, 100% {
-                box-shadow: inset 0 0 0 rgba(255, 0, 0, 0);
-            }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            50% {
-                box-shadow: inset 0 0 160px rgba(255, 0, 0, 0.75);
-            }
-        }
+    background: #eeeeee;
+}
 
-        /* Popup */
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
 
-            transform: translate(-50%, -50%);
+.login-box {
 
-            width: 850px;
-            max-width: 90%;
+    width: 400px;
+    max-width: 90%;
 
-            background: rgba(10, 10, 10, 0.96);
-            color: white;
+    padding: 40px;
 
-            border: 4px solid red;
-            border-radius: 10px;
+    background: white;
 
-            padding: 40px;
+    border-radius: 12px;
 
-            text-align: center;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.20);
 
-            box-shadow:
-                0 0 25px red,
-                0 0 70px rgba(255, 0, 0, 0.8);
+    text-align: center;
+}
 
-            z-index: 10;
-        }
 
-        .warning {
-            font-size: 22px;
-            font-weight: bold;
-            color: #ffcc00;
-            margin-bottom: 15px;
-        }
+/* LOGO */
 
-        h1 {
-            margin: 10px 0 20px;
+.logo {
 
-            font-size: 50px;
-            color: red;
+    width: 100px;
+    height: 100px;
 
-            text-transform: uppercase;
+    margin: 0 auto 20px;
 
-            animation: blink 0.7s infinite;
-        }
+    display: flex;
 
-        @keyframes blink {
-            50% {
-                opacity: 0.35;
-            }
-        }
+    justify-content: center;
+    align-items: center;
+}
 
-        .message {
-            font-size: 25px;
-            line-height: 1.5;
-        }
 
-        .simulation {
-            margin-top: 25px;
-            padding: 15px;
+.logo img {
 
-            background: #222;
-            border: 1px solid #777;
+    width: 100%;
+    height: 100%;
 
-            font-size: 16px;
-            color: #ffcc00;
-        }
+    object-fit: contain;
+}
 
-        button {
-            margin-top: 25px;
 
-            padding: 12px 30px;
+.login-box h1 {
 
-            border: none;
-            border-radius: 5px;
+    margin: 5px 0 8px;
 
-            background: white;
-            color: black;
+    font-size: 28px;
 
-            font-size: 17px;
-            font-weight: bold;
+    color: #222;
+}
 
-            cursor: pointer;
-        }
-    </style>
+
+.login-box p {
+
+    margin: 0 0 30px;
+
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+/* INPUTS */
+
+.input-group {
+
+    text-align: left;
+
+    margin-bottom: 20px;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #333;
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 13px;
+
+    border: 1px solid #bbb;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+
+.input-group input:focus {
+
+    outline: none;
+
+    border-color: #5b4bb7;
+
+    box-shadow: 0 0 0 2px rgba(91,75,183,0.15);
+}
+
+
+/* LOGIN BUTTON */
+
+.login-button {
+
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #5b4bb7;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.login-button:hover {
+
+    background: #48399d;
+}
+
+
+.demo-note {
+
+    margin-top: 22px;
+
+    font-size: 12px;
+
+    color: #999;
+}
+
+
+
+/* =====================================================
+   ALERT PAGE
+   ===================================================== */
+
+.alert-page {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* WEBSITE SCREENSHOT */
+
+.website-background {
+
+    position: absolute;
+
+    inset: -20px;
+
+    background-image: url("TNP HOME PAGE(1).jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    filter: blur(9px);
+}
+
+
+/* DARKEN SCREEN */
+
+.dark-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.48);
+}
+
+
+/* =====================================================
+   RED FLASH
+   ===================================================== */
+
+.red-alert {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    animation: redFlash 0.65s infinite;
+}
+
+
+@keyframes redFlash {
+
+    0% {
+
+        box-shadow:
+            inset 0 0 20px rgba(255,0,0,0.10);
+    }
+
+    50% {
+
+        box-shadow:
+            inset 0 0 130px rgba(255,0,0,0.85),
+            inset 0 0 280px rgba(255,0,0,0.45);
+    }
+
+    100% {
+
+        box-shadow:
+            inset 0 0 20px rgba(255,0,0,0.10);
+    }
+}
+
+
+
+/* =====================================================
+   ALERT WINDOW
+   ===================================================== */
+
+.alert-box {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 850px;
+
+    max-width: 90%;
+
+    padding: 45px;
+
+    background: rgba(0,0,0,0.94);
+
+    border: 5px solid red;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: white;
+
+    box-shadow:
+        0 0 30px red,
+        0 0 80px rgba(255,0,0,0.75);
+}
+
+
+/* WARNING SYMBOL */
+
+.warning-symbol {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+    color: red;
+}
+
+
+/* MAIN MESSAGE */
+
+.alert-box h2 {
+
+    margin: 10px 0;
+
+    font-size: clamp(38px, 6vw, 70px);
+
+    font-weight: 900;
+
+    color: red;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 10px red,
+        0 0 25px red;
+
+    animation: messageFlash 0.65s infinite;
+}
+
+
+@keyframes messageFlash {
+
+    0%,
+    100% {
+
+        opacity: 1;
+    }
+
+    50% {
+
+        opacity: 0.20;
+    }
+}
+
+
+/* TECHNOCOP */
+
+.technocop {
+
+    margin-top: 15px;
+
+    font-size: clamp(28px, 4vw, 48px);
+
+    font-weight: 900;
+
+    color: red;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    animation: messageFlash 0.65s infinite;
+}
+
+
+/* DEMO IDENTIFICATION */
+
+.demo-label {
+
+    margin-top: 30px;
+
+    padding: 12px 20px;
+
+    border: 1px solid #ffcc00;
+
+    color: #ffcc00;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <!-- Actual Tamil Nadu Police website screenshot -->
+
+<!-- ==================================================
+     LOGIN SCREEN
+     ================================================== -->
+
+<div class="login-page" id="loginPage">
+
+    <div class="login-box">
+
+
+        <!-- YOUR GITHUB LOGO -->
+        <div class="logo">
+
+            <img
+                src="logo.png"
+                alt="Portal Logo"
+            >
+
+        </div>
+
+
+        <h1>Secure Portal</h1>
+
+        <p>Authorized Login</p>
+
+
+        <form id="loginForm">
+
+
+            <div class="input-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter username"
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter password"
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-button">
+
+                LOGIN
+
+            </button>
+
+
+        </form>
+
+
+        <div class="demo-note">
+
+            Cybersecurity awareness demonstration
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     ALERT SCREEN
+     ================================================== -->
+
+<div class="alert-page" id="alertPage">
+
+
+    <!-- YOUR UPLOADED WEBSITE SCREENSHOT -->
+
     <div class="website-background"></div>
+
+
+    <!-- DARK OVERLAY -->
 
     <div class="dark-overlay"></div>
 
-    <!-- Red flashing alarm -->
-    <div class="red-flash"></div>
 
-    <!-- Alert popup -->
-    <div class="popup">
+    <!-- FLASHING RED EFFECT -->
 
-        <div class="warning">
-            ⚠ ⚠ ⚠ SECURITY ALERT ⚠ ⚠ ⚠
+    <div class="red-alert"></div>
+
+
+    <!-- ALERT MESSAGE -->
+
+    <div class="alert-box">
+
+
+        <div class="warning-symbol">
+
+            ⚠ ⚠ ⚠
+
         </div>
 
-        <h1>WEBSITE HACKED</h1>
 
-        <div class="message">
-            <strong>TAMILNADU POLICE WEBSITE</strong>
-            <br><br>
-            SECURITY BREACH DETECTED
+        <h2>
+
+            WEBSITE HACKED
+
+        </h2>
+
+
+        <div class="technocop">
+
+            BY TECHNOCOP
+
         </div>
 
-        <div class="simulation">
-            ⚠ CYBERSECURITY AWARENESS SIMULATION ⚠
-            <br><br>
-            This is a fictional demonstration.
-            No real website has been compromised
-            and no ransom payment should be made.
+
+        <div class="demo-label">
+
+            CYBERSECURITY AWARENESS DEMONSTRATION
+
         </div>
 
-        <button onclick="document.querySelector('.popup').style.display='none'">
-            CLOSE
-        </button>
 
     </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/*
+==========================================================
+LOGIN ACTION
+==========================================================
+
+The entered username/password are NOT stored,
+sent to a server, or transmitted anywhere.
+==========================================================
+*/
+
+
+document
+.getElementById("loginForm")
+.addEventListener("submit", function(event) {
+
+
+    event.preventDefault();
+
+
+    /* Hide login */
+
+    document
+    .getElementById("loginPage")
+    .style.display = "none";
+
+
+    /* Show alert */
+
+    document
+    .getElementById("alertPage")
+    .style.display = "block";
+
+
+});
+
+
+</script>
+
 
 </body>
 </html>
