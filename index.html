@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Simulation</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background: #000;
+    }
+
+    /* Blurred background */
+    .background {
+        position: fixed;
+        inset: 0;
+        background-image: url("TNP HOME PAGE.jpg");
+        background-size: cover;
+        background-position: center;
+        filter: blur(8px);
+        transform: scale(1.08);
+        opacity: 0.65;
+    }
+
+    /* Dark overlay */
+    .dark-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    /* Flashing warning light */
+    .warning-light {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        animation: flash 0.8s infinite;
+    }
+
+    @keyframes flash {
+        0%, 100% {
+            box-shadow: inset 0 0 0 rgba(255,0,0,0);
+        }
+
+        50% {
+            box-shadow: inset 0 0 180px rgba(255,0,0,0.75);
+        }
+    }
+
+    .popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(850px, 90%);
+        padding: 45px;
+        text-align: center;
+        background: rgba(15, 15, 15, 0.96);
+        border: 4px solid #ff2020;
+        border-radius: 12px;
+        box-shadow: 0 0 50px rgba(255,0,0,0.8);
+        color: white;
+    }
+
+    .simulation {
+        display: inline-block;
+        padding: 8px 18px;
+        margin-bottom: 20px;
+        background: #ffcc00;
+        color: #111;
+        font-weight: bold;
+        border-radius: 4px;
+        letter-spacing: 2px;
+    }
+
+    h1 {
+        margin: 5px 0 20px;
+        color: #ff3030;
+        font-size: clamp(32px, 5vw, 62px);
+        text-transform: uppercase;
+        animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0.35;
+        }
+    }
+
+    .message {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .notice {
+        margin-top: 30px;
+        padding: 18px;
+        border: 1px solid #777;
+        background: #222;
+        color: #ddd;
+        font-size: 17px;
+    }
+
+    .close {
+        margin-top: 25px;
+        padding: 12px 30px;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+        border: 0;
+        border-radius: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="dark-overlay"></div>
+<div class="warning-light"></div>
+
+<div class="popup">
+
+    <div class="simulation">
+        CYBERSECURITY SIMULATION
+    </div>
+
+    <h1>⚠ SECURITY ALERT ⚠</h1>
+
+    <div class="message">
+        <strong>FICTIONAL WEBSITE COMPROMISE SCENARIO</strong>
+        <br><br>
+        This page is part of a cybersecurity awareness demonstration.
+    </div>
+
+    <div class="notice">
+        <strong>SIMULATION ONLY</strong><br><br>
+        No real website has been hacked.<br>
+        No ransom is being demanded.<br>
+        No payment should be made.
+    </div>
+
+    <button class="close" onclick="document.querySelector('.popup').style.display='none'">
+        CLOSE SIMULATION
+    </button>
+
+</div>
+
+</body>
+</html>
